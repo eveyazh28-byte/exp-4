@@ -1,0 +1,35 @@
+import numpy as np
+
+from sklearn.linear_model import LogisticRegression
+
+from sklearn.metrics import accuracy score, precision score,
+
+recall_score, fl_score, roc_auc_score, roc_curve
+
+import matplotlib.pyplot as plt
+
+X = np.array ([[2,3], [1,2], [3,1], [6,5], [7,8], [8,6]])
+
+y = np.array ([0,0,0,1,1,1])
+
+model = LogisticRegression().fit (X,y)
+
+y pred = model.predict (X)
+
+probs = model.predict_proba (X) [:, 1]
+
+print('Accuracy:', accuracy score (y,y pred))
+
+print('Precision:', precision_score (y,y_pred))
+
+print('Recall:', recall score (y,y pred))
+
+print('F1:', f1 score(y,y pred))
+
+print('AUC:', roc_auc_score(y,probs))
+
+fpr, tpr, = roc curve(y, probs)
+
+plt.plot(fpr, tpr); plt.plot([0,1], [0,1],'--'); plt.xlabel('FPR');
+
+plt.ylabel('TPR'); plt.title('ROC Curve'); plt.show()
